@@ -409,7 +409,7 @@ local function Initiate()
                 for i,v in pairs(Drop:GetChildren()) do
                     if v.Name == "MoneyDrop" then
                         local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
-                        OldMoney += numbers
+                        Money += numbers
                     end
                 end
                 local newStr = Abbreviate(AmountOfMoney)

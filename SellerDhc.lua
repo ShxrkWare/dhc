@@ -546,6 +546,26 @@ local function Initiate()
 			elseif Message == ".dolphin" then
 				if CurrAnim and CurrAnim.IsPlaying then
 					CurrAnim:Stop()
+            elseif Message == ".check" then
+                    local Drop = workspace.Ignored.Drop
+                    local AmountOfMoney = 0
+                    for i,v in pairs(Drop:GetChildren()) do
+                        if v.Name == "MoneyDrop" then
+                            local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                            AmountOfMoney += numbers
+                        end
+                    end
+                    local newStr = Abbreviate(AmountOfMoney)
+                    newStr = tostring(newStr)
+                    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(newStr, 'All')
+                    end
+                    local newStr = Abbreviate(AmountOfMoney)
+                    newStr = tostring(newStr)
+                    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(newStr, 'All')
+                    end
+                    local newStr = Abbreviate(AmountOfMoney)
+                    newStr = tostring(newStr)
+                    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(newStr, 'All')
 				end
 				local Anim = Instance.new("Animation")
 				Anim.AnimationId = "http://www.roblox.com/asset/?id=5918726674"

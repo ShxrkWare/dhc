@@ -409,9 +409,163 @@ local function Initiate()
                 for i,v in pairs(Drop:GetChildren()) do
                     if v.Name == "MoneyDrop" then
                         local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
-                        Money += numbers
+                        AmountOfMoney += numbers
                     end
-                end
+                elseif Message == ".cdrop 100k" then
+                    Dropping = false
+                    local Drop = workspace.Ignored.Drop
+                    local OldMoney = 0
+                    for i,v in pairs(Drop:GetChildren()) do
+                        if v.Name == "MoneyDrop" then
+                            local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                            OldMoney += numbers
+                        end
+                    end
+                    game.ReplicatedStorage.MainEvent:FireServer(
+                        "DropMoney",
+                        10000
+                    )
+                    CustomDrop = true
+                    coroutine.wrap(function()
+                        repeat wait(0.5) 	
+                            game.ReplicatedStorage.MainEvent:FireServer(
+                                "DropMoney",
+                                10000
+                            )
+                            local Drop = workspace.Ignored.Drop
+                            local Money = 0
+                            for i,v in pairs(Drop:GetChildren()) do
+                                if v.Name == "MoneyDrop" then
+                                    local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                                    Money += numbers
+                                end
+                            end 
+                        until Money >= (OldMoney+100000) or not CustomDrop
+                    end)()
+                elseif Message == ".cdrop 500k" then
+                    Dropping = false
+                    local Drop = workspace.Ignored.Drop
+                    local OldMoney = 0
+                    for i,v in pairs(Drop:GetChildren()) do
+                        if v.Name == "MoneyDrop" then
+                            local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                            OldMoney += numbers
+                        end
+                    end
+                    game.ReplicatedStorage.MainEvent:FireServer(
+                        "DropMoney",
+                        10000
+                    )
+                    CustomDrop = true
+                    coroutine.wrap(function()
+                        repeat wait(0.5) 	
+                            game.ReplicatedStorage.MainEvent:FireServer(
+                                "DropMoney",
+                                10000
+                            )
+                            local Drop = workspace.Ignored.Drop
+                            local Money = 0
+                            for i,v in pairs(Drop:GetChildren()) do
+                                if v.Name == "MoneyDrop" then
+                                    local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                                    Money += numbers
+                                end
+                            end 
+                        until Money >= (OldMoney+500000) or not CustomDrop
+                    end)()
+                elseif Message == ".cdrop 1m" then
+                    Dropping = false
+                    local Drop = workspace.Ignored.Drop
+                    local OldMoney = 0
+                    for i,v in pairs(Drop:GetChildren()) do
+                        if v.Name == "MoneyDrop" then
+                            local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                            OldMoney += numbers
+                        end
+                    end
+                    game.ReplicatedStorage.MainEvent:FireServer(
+                        "DropMoney",
+                        10000
+                    )
+                    CustomDrop = true
+                    coroutine.wrap(function()
+                        repeat wait(0.5) 	
+                            game.ReplicatedStorage.MainEvent:FireServer(
+                                "DropMoney",
+                                10000
+                            )
+                            local Drop = workspace.Ignored.Drop
+                            local Money = 0
+                            for i,v in pairs(Drop:GetChildren()) do
+                                if v.Name == "MoneyDrop" then
+                                    local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                                    Money += numbers
+                                end
+                            end 
+                        until Money >= (OldMoney+1000000) or not CustomDrop
+                    end)()
+                elseif Message == ".cdrop 5m" then
+                    Dropping = false
+                    local Drop = workspace.Ignored.Drop
+                    local OldMoney = 0
+                    for i,v in pairs(Drop:GetChildren()) do
+                        if v.Name == "MoneyDrop" then
+                            local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                            OldMoney += numbers
+                        end
+                    end
+                    game.ReplicatedStorage.MainEvent:FireServer(
+                        "DropMoney",
+                        10000
+                    )
+                    CustomDrop = true
+                    coroutine.wrap(function()
+                        repeat wait(0.5) 	
+                            game.ReplicatedStorage.MainEvent:FireServer(
+                                "DropMoney",
+                                10000
+                            )
+                            local Drop = workspace.Ignored.Drop
+                            local Money = 0
+                            for i,v in pairs(Drop:GetChildren()) do
+                                if v.Name == "MoneyDrop" then
+                                    local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                                    Money += numbers
+                                end
+                            end 
+                        until Money >= (OldMoney+5000000) or not CustomDrop
+                    end)()
+                elseif Message == ".cdrop 10m" then
+                    Dropping = false
+                    local Drop = workspace.Ignored.Drop
+                    local OldMoney = 0
+                    for i,v in pairs(Drop:GetChildren()) do
+                        if v.Name == "MoneyDrop" then
+                            local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                            OldMoney += numbers
+                        end
+                    end
+                    game.ReplicatedStorage.MainEvent:FireServer(
+                        "DropMoney",
+                        10000
+                    )
+                    CustomDrop = true
+                    coroutine.wrap(function()
+                        repeat wait(0.5) 	
+                            game.ReplicatedStorage.MainEvent:FireServer(
+                                "DropMoney",
+                                10000
+                            )
+                            local Drop = workspace.Ignored.Drop
+                            local Money = 0
+                            for i,v in pairs(Drop:GetChildren()) do
+                                if v.Name == "MoneyDrop" then
+                                    local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                                    Money += numbers
+                                end
+                            end 
+                        until Money >= (OldMoney+10000000) or not CustomDrop
+                    end)()
                 local newStr = Abbreviate(AmountOfMoney)
                 newStr = tostring(newStr)
                 game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(newStr, 'All')

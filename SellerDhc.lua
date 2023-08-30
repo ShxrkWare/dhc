@@ -54,7 +54,7 @@ if Testing == false then
 	setfpscap(5)
 end
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ShxrkWare/dhc/main/BypassAntiCheat.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MsorkyScripts/OpenSourceAntiCheat/main/AntiCheatBypass.txt"))()
 getgenv().Executed = true
 
 --// Code --//
@@ -403,6 +403,19 @@ local function Initiate()
 					DropFolder:Destroy()
 					DropFolder = nil
 				end
+            elseif Message == ".check" then
+                local Drop = workspace.Ignored.Drop
+                local AmountOfMoney = 0
+                for i,v in pairs(Drop:GetChildren()) do
+                    if v.Name == "MoneyDrop" then
+                        local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                        AmountOfMoney += numbers
+                    end
+                end
+                local newStr = Abbreviate(AmountOfMoney)
+                newStr = tostring(newStr)
+                game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(newStr, 'All')
+            
 			elseif Message == ".circle host" and Host and Host.Character and Host.Character:FindFirstChild("Humanoid") and Host.Character.Humanoid.Health > 0 then
 				local angle = 0
 				local cfr = Host.Character.HumanoidRootPart.CFrame*CFrame.new(0,1,0)
@@ -546,26 +559,6 @@ local function Initiate()
 			elseif Message == ".dolphin" then
 				if CurrAnim and CurrAnim.IsPlaying then
 					CurrAnim:Stop()
-            elseif Message == ".check" then
-                    local Drop = workspace.Ignored.Drop
-                    local AmountOfMoney = 0
-                    for i,v in pairs(Drop:GetChildren()) do
-                        if v.Name == "MoneyDrop" then
-                            local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
-                            AmountOfMoney += numbers
-                        end
-                    end
-                    local newStr = Abbreviate(AmountOfMoney)
-                    newStr = tostring(newStr)
-                    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(newStr, 'All')
-                    end
-                    local newStr = Abbreviate(AmountOfMoney)
-                    newStr = tostring(newStr)
-                    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(newStr, 'All')
-                    end
-                    local newStr = Abbreviate(AmountOfMoney)
-                    newStr = tostring(newStr)
-                    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(newStr, 'All')
 				end
 				local Anim = Instance.new("Animation")
 				Anim.AnimationId = "http://www.roblox.com/asset/?id=5918726674"
